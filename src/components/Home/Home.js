@@ -1,8 +1,6 @@
 import React from 'react'
 import HomeCSS from './Home.module.css'
 import { useState } from "react";
-
-
 import {
   Routes,
   Route,
@@ -10,7 +8,7 @@ import {
 } from "react-router-dom";
 import Dashboard from '../Dashboard/Dashboard';
 import Categories from '../Categories/Categories';
-const Home = () => {
+const Home = ({getItems}) => {
     const [open, setOpen] = useState(true);
     const Menus = [
       { title: "Dashboard", src: "Chart.png" },
@@ -63,10 +61,9 @@ const Home = () => {
         </ul>
       </div>
       <div className="h-screen flex-1 p-7">
-        <h1 className="text-2xl font-semibold ">Home Page</h1>
         <Routes>
       
-      <Route path="Dashboard" element={<Dashboard />} />
+      <Route path="Dashboard" element={<Dashboard getItems={getItems} />} />
       <Route path="Categories" element={<Categories/>} />
     </Routes>
       </div>

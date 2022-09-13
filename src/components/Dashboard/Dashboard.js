@@ -1,8 +1,15 @@
 import React from 'react'
 
-const Dashboard = () => {
+const Dashboard = ({getItems}) => {
   return (
-    <div>Dashboard</div>
+    <div>
+        
+        {getItems.map((getItem,index) => {
+            return(
+            <img className='w-1/4' src={getItem} alt="foto" key={index} />
+            )
+        })}
+    </div>
   )
 }
 
