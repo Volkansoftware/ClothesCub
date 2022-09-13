@@ -1,6 +1,14 @@
 import React from 'react'
 import HomeCSS from './Home.module.css'
 import { useState } from "react";
+
+
+import {
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+import Dashboard from '../Dashboard/Dashboard';
 import Categories from '../Categories/Categories';
 const Home = () => {
     const [open, setOpen] = useState(true);
@@ -48,7 +56,7 @@ const Home = () => {
             >
               <img className={`${HomeCSS.menu}`} src={require(`../../assets/${Menu.src}`)} alt='volkan' />
               <span className={`${!open && "hidden"} origin-left duration-200`}>
-                {Menu.title}
+              <Link to={`/${Menu.title}`}> {Menu.title}</Link>
               </span>
             </li>
           ))}
@@ -56,7 +64,11 @@ const Home = () => {
       </div>
       <div className="h-screen flex-1 p-7">
         <h1 className="text-2xl font-semibold ">Home Page</h1>
-        <Categories/>
+        <Routes>
+      
+      <Route path="Dashboard" element={<Dashboard />} />
+      <Route path="Categories" element={<Categories/>} />
+    </Routes>
       </div>
     </div>
   )
