@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import Dashboard from '../Dashboard/Dashboard';
 import Categories from '../Categories/Categories';
-const Home = ({getItems}) => {
+const Home = ({Clothes}) => {
     const [open, setOpen] = useState(true);
     const Menus = [
       { title: "Dashboard", src: "Chart.png" },
@@ -63,8 +63,8 @@ const Home = ({getItems}) => {
       <div className="h-screen flex-1 p-7">
         <Routes>
       
-      <Route path="Dashboard" element={<Dashboard getItems={getItems} />} />
-      <Route path="Categories" element={<Categories/>} />
+      <Route path="Dashboard" element={<Dashboard  />} />
+      <Route path="Categories" element={<Categories Clothes={Clothes} />} />
     </Routes>
       </div>
     </div>
